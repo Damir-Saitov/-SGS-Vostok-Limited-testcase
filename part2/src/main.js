@@ -1,4 +1,7 @@
 import './styles.css';
-import { main } from './HTMLJS';
+import { main as mainHTMLJS } from './HTMLJS.js';
+import { main as mainVue } from './vue.js';
 
-main(document.getElementById('htmljs'));
+
+mainHTMLJS(document.getElementById('htmljs'));
+mainVue(document.getElementById('vue'));

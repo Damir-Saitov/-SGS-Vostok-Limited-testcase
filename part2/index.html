@@ -7,47 +7,141 @@
   </head>
   <body>
     <div id="htmljs">
-      <form id="form">
-          <div class="mt-10px">
-              <label for="city">Город:</label>
-              <select
-                  name="city" 
-                  id="city"
-              ></select>
-          </div>
+        <h3>HTML + JS</h3>
+        <form>
+            <div>
+                <label for="city">Город:</label>
+                <select
+                    name="city" 
+                    id="city"
+                ></select>
+            </div>
 
-          <div class="mt-10px">
-              <label for="workshop">Цех:</label>
-              <select 
-                  name="workshop"
-                  id="workshop"
-               ></select>
-          </div>
+            <div class="mt-10px">
+                <label for="workshop">Цех:</label>
+                <select 
+                    name="workshop"
+                    id="workshop"
+                ></select>
+            </div>
 
-          <div class="mt-10px">
-              <label for="employee">Сотрудник:</label>
-              <select
-                  name="employee" 
-                  id="employee"
-              ></select>
-          </div>
+            <div class="mt-10px">
+                <label for="employee">Сотрудник:</label>
+                <select
+                    name="employee" 
+                    id="employee"
+                ></select>
+            </div>
 
-          <div class="mt-10px">
-              <label for="brigade">Бригада:</label>
-              <select
-                  name="brigade"
-                  id="brigade"
-               ></select>
-          </div>
+            <div class="mt-10px">
+                <label for="brigade">Бригада:</label>
+                <select
+                    name="brigade"
+                    id="brigade"
+                ></select>
+            </div>
 
-          <div class="mt-10px">
-              <label for="employment">Смена:</label>
-              <select 
-                  name="employment" 
-                  id="employment"
-              ></select>
-          </div>
-      </form>
+            <div class="mt-10px">
+                <label for="employment">Смена:</label>
+                <select 
+                    name="employment" 
+                    id="employment"
+                ></select>
+            </div>
+        </form>
+    </div>
+
+    <div
+        id="vue"
+        class="mt-10px"
+    >
+        <h3>Vue</h3>
+        <form @change="onChangeForm">
+            <div>
+                <label for="city">Город:</label>
+                <select
+                    name="city" 
+                    id="city"
+                    v-model="selectedCity"
+                >
+                    <option
+                        v-for="city in cities"
+                        :key="city.id"
+                        :value="city.id"
+                    >
+                        {{ city.name }}
+                    </option>
+                </select>
+            </div>
+  
+            <div class="mt-10px">
+                <label for="workshop">Цех:</label>
+                <select 
+                    name="workshop"
+                    id="workshop"
+                    v-model="selectedWorkshop"
+                 >
+                    <option
+                        v-for="workshop in cityWorkshops"
+                        :key="workshop.id"
+                        :value="workshop.id"
+                    >
+                        {{ workshop.name }}
+                    </option>
+                </select>
+            </div>
+  
+            <div class="mt-10px">
+                <label for="employee">Сотрудник:</label>
+                <select
+                    name="employee" 
+                    id="employee"
+                    v-model="selectedEmployee"
+                >
+                    <option
+                        v-for="employee in workshopEmployees"
+                        :key="employee.id"
+                        :value="employee.id"
+                    >
+                        {{ employee.name }}
+                    </option>
+                </select>
+            </div>
+  
+            <div class="mt-10px">
+                <label for="brigade">Бригада:</label>
+                <select
+                    name="brigade"
+                    id="brigade"
+                    v-model="selectedBrigade"
+                 >
+                    <option
+                        v-for="brigade in brigades"
+                        :key="brigade.id"
+                        :value="brigade.id"
+                    >
+                        {{ brigade.name }}
+                    </option>
+                </select>
+            </div>
+  
+            <div class="mt-10px">
+                <label for="employment">Смена:</label>
+                <select 
+                    name="employment" 
+                    id="employment"
+                    v-model="selectedEmployment"
+                >
+                    <option
+                        v-for="employment in employments"
+                        :key="employment.id"
+                        :value="employment.id"
+                    >
+                        {{ employment.name }}
+                    </option>
+                </select>
+            </div>
+        </form>
     </div>
 
     <script type="module" src="/src/main.js"></script>

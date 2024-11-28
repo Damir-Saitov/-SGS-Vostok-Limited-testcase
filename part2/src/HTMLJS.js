@@ -15,6 +15,7 @@ import {
 } from './utils.js';
 
 
+const savedDataCookieKey = 'savedData1';
 
 /** @param {HTMLElement} root */
 export function main(root) {
@@ -64,9 +65,9 @@ export function main(root) {
 
 
   // Загрузка данных
-  const savedData = getSavedData();
+  const savedData = getSavedData(savedDataCookieKey);
   if (savedData?.city) {
-    citySelect.selectedIndex = cities.findIndex((element) => element.id == savedData.city)
+    citySelect.selectedIndex = cities.findIndex((element) => element.id == savedData.city);
 
     if (citySelect.selectedIndex !== -1) {
       citySelect.dispatchEvent(new Event('change'));
@@ -94,7 +95,7 @@ export function main(root) {
 
   // Сохранение данных
   form.addEventListener('change', () => {
-    saveData({
+    saveData(savedDataCookieKey, {
       city: citySelect.value,
       workshop: workshopSelect.value,
       employee: employeeSelect.value,

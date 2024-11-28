@@ -4,9 +4,8 @@ import {
 } from './utils.js';
 
 
-const savedDataCookieKey = 'savedData';
-export function getSavedData() {
-  const savedData = getCookie(savedDataCookieKey);
+export function getSavedData(key) {
+  const savedData = getCookie(key);
   if (savedData) {
     try {
       return JSON.parse(savedData);
@@ -16,6 +15,6 @@ export function getSavedData() {
   }
 }
 
-export function saveData(data) {
-  setCookie(savedDataCookieKey, JSON.stringify(data));
+export function saveData(key, data) {
+  setCookie(key, JSON.stringify(data));
 }
